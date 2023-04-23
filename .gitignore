@@ -1,2 +1,69 @@
-venv
-.idea
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.so
+*.dll
+
+# Virtual environments
+venv/
+.env/
+env/
+ENV/
+
+# Distribution / packaging files
+*.egg-info/
+dist/
+build/
+wheels/
+
+# Logs and databases
+*.log
+*.sqlite
+
+# Cache and temporary files
+*.cache
+*.pyc
+*.pyo
+*.pyd
+*.swp
+*.swo
+*.swn
+*.bak
+*.tmp
+*.temp
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDEs and editors
+.vscode/
+.idea/
+*.iml
+*.ipr
+*.iws
+*.suo
+*.user
+*.sln.docstates
+
+# Unit test / coverage reports
+.coverage
+.tox/
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
