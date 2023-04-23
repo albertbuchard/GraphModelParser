@@ -153,9 +153,9 @@ class GraphModelParser:
 
     def __call__(self, t=0, **kwargs):
         if t not in self.computed_values:
-            return self.compute(t)
+            return self.compute(t, **kwargs)
 
-    def compute(self, t):
+    def compute(self, t, whole_history=False):
         if t in self.computed_values:
             return self.computed_values[t]
         else:
@@ -193,7 +193,19 @@ class GraphModelParser:
                     '__builtins__': None
                 }
 
+                # Extract variable names from the formula
+                var_pattern = re.compile(r"[a-zA-Z_\d^{]+_\d+")
+                formula_vars = set(var_pattern.findall(formula))
+
+                # Check if all variables are present in the flattened_values dictionary
+                missing_vars = formula_vars - set(flattened_values.keys())
+                if missing_vars:
+                    raise ValueError(f"Missing variables: {missing_vars}")
+
                 current_value = eval(formula, custom_functions, flattened_values)
                 self.computed_values[t][f'{var_name}_{t}'] = current_value
+
+        if whole_history:
+            return self.flatten_values(t)
 
         return self.computed_values[t]

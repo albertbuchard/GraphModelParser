@@ -14,6 +14,14 @@ class TestGraphModelParser(unittest.TestCase):
         self.initial_values = {'a_0': 0, 'a_1': 1, 'b_0': 0, 'b_1': 1, 'c_0': 0}
         self.model = GraphModelParser(self.model_description, self.initial_values)
 
+        # Missing initial values
+        self.model_description_2 = ''' 
+            b_{t} = b_{t-1} + 2*b_{t-2} + a_0
+            c_{t} = c_{t-1} + normal(1, 2)
+            '''
+        self.initial_values_2 = {'b_0': 0, 'b_1': 1}
+        self.model_2 = GraphModelParser(self.model_description_2, self.initial_values_2)
+
     def test_parse_model_description(self):
         self.assertEqual(len(self.model.formulas), 3)
 
@@ -43,6 +51,10 @@ class TestGraphModelParser(unittest.TestCase):
         self.assertIn('c_3', computed_values_t3)
         self.assertAlmostEqual(computed_values_t3['a_3'], 3, places=4)
         self.assertAlmostEqual(computed_values_t3['b_3'], 8, places=4)
+
+    def test_missing_initial_values(self):
+        with self.assertRaises(ValueError):
+            self.model_2(1)
 
 
 if __name__ == '__main__':
