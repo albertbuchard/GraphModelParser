@@ -4,16 +4,16 @@ GraphModelParser is a Python library for representing and simulating dynamical g
 
 ## Installation
 
-To install the required dependencies, simply run:
+You can install GraphModelParser from PyPI by running:
 
 ```bash
-pip install -r requirements.txt
+pip install graph-model-parser
 ```
 
 ## Usage
 
 ```python
-from src.graph_model_parser import GraphModelParser
+from graph_model_parser import GraphModelParser
 import numpy as np
 
 # Set seed for reproducibility

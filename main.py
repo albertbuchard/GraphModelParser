@@ -1,6 +1,6 @@
 import numpy as np
 
-from src.graph_model_parser import GraphModelParser
+from graph_model_parser import GraphModelParser
 
 if __name__ == '__main__':
     # Set seed for reproducibility

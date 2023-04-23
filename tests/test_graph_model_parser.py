@@ -1,6 +1,7 @@
 import unittest
-from src.graph_model_parser import GraphModelParser
 import numpy as np
+
+from graph_model_parser import GraphModelParser
 
 
 class TestGraphModelParser(unittest.TestCase):
