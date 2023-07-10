@@ -2,6 +2,7 @@ import re
 from collections import deque
 
 import numpy as np
+import math
 from scipy.stats import norm, poisson, expon, binom, uniform
 
 
@@ -190,6 +191,8 @@ class GraphModelParser:
                     'poisson': poisson.rvs,
                     'binomial': binom.rvs,
                     'exponential': expon.rvs,
+                    'np': np,
+                    'math': math,
                     '__builtins__': None
                 }
 
